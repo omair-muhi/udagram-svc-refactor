@@ -3,11 +3,12 @@ import { config } from "./config/config";
 
 console.log(`config.username=${config.username}`);
 console.log(`config.password=${config.password}`);
-console.log(`config.database=${config.database}`);
-console.log(`config.host=${config.host}`);
+console.log(`config.password=${config.password}`);
+console.log(`config.password=${config.password}`);
+console.log("Added env names inquotes");
 export const sequelize = new Sequelize({
-  username: config.username,
-  password: config.password,
+  username: "POSTGRES_USERNAME",
+  password: "POSTGRES_PASSWORD",
   database: config.database,
   host: config.host,
 
