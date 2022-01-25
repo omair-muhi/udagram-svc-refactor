@@ -1,6 +1,11 @@
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
 }
+console.log(`process.env.POSTGRES_USERNAME=${process.env.POSTGRES_USERNAME}`);
+console.log(`process.env.POSTGRES_PASSWORD=${process.env.POSTGRES_PASSWORD}`);
+console.log(`process.env.POSTGRES_DB=${process.env.POSTGRES_DB}`);
+console.log(`process.env.POSTGRES_HOST=${process.env.POSTGRES_HOST}`);
+console.log(`process.env.NODE_ENV=${process.env.NODE_ENV}`);
 export const config = {
   username: process.env.POSTGRES_USERNAME,
   password: process.env.POSTGRES_PASSWORD,
