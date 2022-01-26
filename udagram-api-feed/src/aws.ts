@@ -5,7 +5,19 @@ import { config } from "./config/config";
 const credentials = new AWS.SharedIniFileCredentials({
   profile: config.aws_profile,
 });
+console.log("BEFORE==============");
+console.log(`credentials.aws_access_key_id=${credentials.accessKeyId}`);
+console.log(`credentials.secretAccessKey=${credentials.secretAccessKey}`);
 console.log("==============");
+if (credentials.accessKeyId === undefined) {
+  credentials.accessKeyId = process.env.AWS_ACCESS_KEY_ID;
+}
+if (credentials.secretAccessKey === undefined) {
+  credentials.secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
+}
+console.log("AFTER==============");
+console.log(`AWS_ACCESS_KEY_ID=${process.env.AWS_ACCESS_KEY_ID}`);
+console.log(`AWS_SECRET_ACCESS_KEY=${process.env.AWS_SECRET_ACCESS_KEY}`);
 console.log(`credentials.aws_access_key_id=${credentials.accessKeyId}`);
 console.log(`credentials.secretAccessKey=${credentials.secretAccessKey}`);
 console.log("==============");
