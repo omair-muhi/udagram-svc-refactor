@@ -1,6 +1,3 @@
-// if (process.env.NODE_ENV !== "production") {
-//   require("dotenv").config();
-// }
 console.log(`process.env.POSTGRES_USERNAME=${process.env.POSTGRES_USERNAME}`);
 console.log(`process.env.POSTGRES_PASSWORD=${process.env.POSTGRES_PASSWORD}`);
 console.log(`process.env.POSTGRES_DB=${process.env.POSTGRES_DB}`);
