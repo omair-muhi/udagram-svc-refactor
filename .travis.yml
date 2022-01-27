@@ -22,7 +22,7 @@ script:
   - docker build -t udagram-reverseproxy ./udagram-reverseproxy
   # Tags
   - docker tag udagram-api-feed omairmuhi/udagram-api-feed:v12
-  - docker tag udagram-api-user omairmuhi/udagram-api-user:v8
+  - docker tag udagram-api-user omairmuhi/udagram-api-user:v9
   - docker tag udagram-frontend omairmuhi/udagram-frontend:v11
   - docker tag udagram-reverseproxy omairmuhi/udagram-reverseproxy:v1
 
@@ -30,6 +30,8 @@ script:
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push omairmuhi/udagram-api-feed:v12
-  - docker push omairmuhi/udagram-api-user:v8
+  - docker push omairmuhi/udagram-api-user:v9
   - docker push omairmuhi/udagram-frontend:v11
   - docker push omairmuhi/udagram-reverseproxy:v1
+# kubectl apply -f deployment/backend-user-deployment.yaml && kubectl apply -f service/backend-user-service.yaml
+
