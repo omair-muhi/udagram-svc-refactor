@@ -61,26 +61,26 @@ router.get(
 router.post("/login", async (req: Request, res: Response) => {
   const email = req.body.email;
   const password = req.body.password;
-
+  console.log("/login: validating email");
   if (!email || !EmailValidator.validate(email)) {
     return res
       .status(400)
       .send({ auth: false, message: "Email is required or malformed." });
   }
-
+  console.log("/login: validating password");
   if (!password) {
     return res
       .status(400)
       .send({ auth: false, message: "Password is required." });
   }
-
+  console.log("/login: User.findByPk");
   const user = await User.findByPk(email);
   if (!user) {
     return res
       .status(401)
       .send({ auth: false, message: "User was not found.." });
   }
-
+  console.log("/login: await comparePasswords()");
   const authValid = await comparePasswords(password, user.passwordHash);
 
   if (!authValid) {
@@ -88,7 +88,7 @@ router.post("/login", async (req: Request, res: Response) => {
       .status(401)
       .send({ auth: false, message: "Password was invalid." });
   }
-
+  console.log("/login: PWD valid...now generating JWT");
   const jwt = generateJWT(user);
   res.status(200).send({ auth: true, token: jwt, user: user.short() });
 });
