@@ -5,8 +5,7 @@
 export const environment = {
   production: false,
   appName: "Udagram",
-  apiHost:
-    "https://cors-anywhere.herokuapp.com/http://a59193cec781648bfa0c4eb3fc2cf48b-1767355660.us-east-1.elb.amazonaws.com:8080/api/v0",
+  apiHost: "http://localhost:8080/api/v0",
 };
 
 /*
