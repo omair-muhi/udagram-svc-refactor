@@ -3,10 +3,10 @@ kind: Service
 metadata:
   name: backend-user
   labels:
-    run: backend-user
+    app: backend-user
 spec:
   ports:
-  - port: 80
-    protocol: TCP
+    - port: 80
+      protocol: TCP
   selector:
-    run: backend-user
+    app: backend-user
